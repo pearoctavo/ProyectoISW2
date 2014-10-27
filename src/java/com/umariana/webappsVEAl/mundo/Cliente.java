@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto.pruebasd;
+package com.umariana.webappsVEAl.mundo;
 
+
+/*
+    aqui realizando una prueba por que no me sincroniza
+*/
 /**
  *
  * clase que representa un cliente
