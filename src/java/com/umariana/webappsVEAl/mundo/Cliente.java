@@ -156,9 +156,6 @@ public class Cliente {
     }
 
     /**
-     * yo modifique esto prueba de un suspuesto error en la clase de Cliente 
-     * 
-     * 
      * metodo que cambia el telefono
      * @param pTelefono telefono del cliente. telefono !="" and telefono !=null
      */
