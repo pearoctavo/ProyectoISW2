@@ -5,10 +5,6 @@
  */
 package com.umariana.webappsVEAl.mundo;
 
-
-/*
-    aqui realizando una prueba por que no me sincroniza
-*/
 /**
  *
  * clase que representa un cliente

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : Respuesta
+    Document   : respuesta
     Created on : 16-sep-2014, 22:26:28
-    Author     : ERICK
+    Author     : Pear Team
 --%>
 
 <%@page import="com.umariana.webappsVEAl.mundo.*"%>

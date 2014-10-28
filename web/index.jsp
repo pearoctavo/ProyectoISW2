@@ -15,7 +15,7 @@
         <table border="1" align="center">
             <thead>
                 <tr>
-                    <th colspan="4" align="center"><h1>Webapps ALVe</h1></th>
+                    <th colspan="5" align="center"><h1>Webapps ALVe</h1></th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +24,7 @@
                     <td align="center"><a href="Vehiculo/vehiculo.jsp" target="_top">Vehiculo</a></td>
                     <td align="center"><a href="Marca/marca.jsp" target="_top">Marca</a></td>           
                     <td align="center"><a href="Linea/linea.jsp" target="_top">Linea</a></td>
+                    <td align="center"><a href="ciudad/ciudad.jsp" target="_top">Ciudad</a></td>
                 </tr>
                 <tr>
                     <td colspan="2"> <h1>Reporte 1 Por Desarrollar</h1> </td>
