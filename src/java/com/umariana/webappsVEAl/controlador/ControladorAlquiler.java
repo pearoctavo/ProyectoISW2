@@ -6,6 +6,7 @@
 
 package com.umariana.webappsVEAl.controlador;
 
+import com.umariana.webappsVEAl.mundo.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,17 +35,43 @@ public class ControladorAlquiler extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ControladorAlquiler</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ControladorAlquiler at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        
+        PrintWriter out = response.getWriter();
+        
+        HttpSession session =  request.getSession(true);
+        Tienda tienda =(Tienda) session.getAttribute("tienda");
+        session.setAttribute("tienda", tienda);
+        
+        String operacionAgregar =  request.getParameter("btnAgregar");
+        
+        String mensaje = "";
+        String espacio = "      ";
+        
+        if (operacionAgregar != null && operacionAgregar.equals("Agregar"))
+        {
+            try
+            {
+                //String nCliente =  request.getParameter("a_alquiler_cliente");
+                Cliente cliente =(Cliente) session.getAttribute("cliente");
+                int nHoras = Integer.parseInt(request.getParameter("a_alquiler_horas"));
+                Vehiculo vehiculo = (Vehiculo)session.getAttribute("vehiculo");                              
+                
+                
+                //por implementar // tienda.adicionarAlquiler(cliente, nHoras,vehiculo);
+
+                mensaje = "Detalles:  Cliente" + cliente.getNombres() +" "+cliente.getApellidos()+
+                          "\nNumero de horas " + nHoras + 
+                          "\nVehiculo:"+ vehiculo.getPlaca() +                        
+                          "\n Este alquiler fue registrado con éxito";
+
+                session.setAttribute("mensaje", mensaje);
+
+                response.sendRedirect("./respuesta.jsp");
+            }
+            catch( Exception e )
+            {
+                out.println(e.getMessage());
+            }
         }
     }
 
