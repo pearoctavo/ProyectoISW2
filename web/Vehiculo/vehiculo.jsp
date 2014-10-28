@@ -62,7 +62,8 @@
                                     </tr>
                                     <tr>
                                         <td>Imagen: </td>
-                                        <td colspan="2"><input type="file" value="a_vehiculo_imagen" name="btnImagenVehiculo" /></td>
+                                        <td colspan="2"><input type="file"  name="btnImagenVehiculo" id="imagenCarro" value="" /></td>
+                                        
                                     </tr>
                                     <tr>
                                         <td>Costo Hora: </td>

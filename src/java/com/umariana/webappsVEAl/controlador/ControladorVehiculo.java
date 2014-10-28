@@ -10,8 +10,12 @@ import com.umariana.webappsVEAl.mundo.Linea;
 import com.umariana.webappsVEAl.mundo.Marca;
 import com.umariana.webappsVEAl.mundo.Tienda;
 import com.umariana.webappsVEAl.mundo.Vehiculo;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.channels.FileChannel;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -63,6 +67,11 @@ public class ControladorVehiculo extends HttpServlet {
             try
             {
                 double costo = Double.parseDouble(request.getParameter("a_vehiculo_costo"));
+
+             String fichero = String.valueOf(request.getAttribute("imagenCarro"));
+                   
+                copyFile(new File(fichero), new File("D:\\Nueva carpeta"));
+
                 String imagen = request.getParameter("a_vehiculo_imagen");
                 String linea = request.getParameter("a_vehiculo_linea");
                 String marca = request.getParameter("a_vehiculo_marca");
@@ -186,4 +195,19 @@ public class ControladorVehiculo extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+    
+    public void copyFile(File s, File t)
+{
+try{
+     FileChannel in = (new FileInputStream(s)).getChannel();
+    FileChannel out = (new FileOutputStream(t)).getChannel();
+in.transferTo(0, s.length(), out);
+in.close();
+out.close();
+}
+catch(Exception e)
+{
+System.out.println(e);
+}
+}
 }

@@ -15,7 +15,7 @@
         <table border="1" align="center">
             <thead>
                 <tr>
-                    <th colspan="5" align="center"><h1>Webapps ALVe</h1></th>
+                    <th colspan="6" align="center"><h1>Webapps ALVe</h1></th>
                 </tr>
             </thead>
             <tbody>
@@ -25,10 +25,11 @@
                     <td align="center"><a href="Marca/marca.jsp" target="_top">Marca</a></td>           
                     <td align="center"><a href="Linea/linea.jsp" target="_top">Linea</a></td>
                     <td align="center"><a href="ciudad/ciudad.jsp" target="_top">Ciudad</a></td>
+                    <td align="center"><a href="alquiler/alquiler.jsp" target="_top">Alquiler</a></td>
                 </tr>
                 <tr>
-                    <td colspan="2"> <h1>Reporte 1 Por Desarrollar</h1> </td>
-                    <td colspan="2"> <h1>Reporte 2 Por Desarrollar</h1> </td>                    
+                    <td colspan="3"> <h1>Reporte 1 Por Desarrollar</h1> </td>
+                    <td colspan="3"> <h1>Reporte 2 Por Desarrollar</h1> </td>                    
                 </tr>
             </tbody>
         </table>
