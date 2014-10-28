@@ -29,7 +29,7 @@
         <table border="1" align="center">
             <thead>
                 <tr>
-                    <th colspan="4" align="center"><h1>Marca</h1></th>                   
+                    <th colspan="7" align="center"><h1>Marca</h1></th>                   
                 </tr>
             </thead>
             <tbody>
@@ -38,9 +38,12 @@
                     <td align="center"><a href="../Vehiculo/vehiculo.jsp" target="_top">Vehiculo</a></td>
                     <td align="center"><a href="marca.jsp" target="_top">Marca</a></td>
                     <td align="center"><a href="../Linea/linea.jsp" target="_top">Linea</a></td>
+                    <td align="center"><a href="../ciudad/ciudad.jsp" target="_top">Ciudad</a></td>
+                    <td align="center"><a href="../cliente/cliente.jsp" target="_top">Cliente</a></td>
+                    <td align="center"><a href="../alquiler/alquiler.jsp" target="_top">Alquiler</a></td>
                 </tr>
                 <tr>                   
-                    <td colspan="2" BGCOLOR="yellow"> 
+                    <td colspan="3" BGCOLOR="yellow"> 
                         <form name="frmAdicionarMarca" action="../ControladorMarca" method="POST">
                                 <table align="center" BGCOLOR="yellow">
                                 <thead>                                   
@@ -66,7 +69,7 @@
                             </table>
                         </form><!termina el formulario adicionar marca!>
                     </td>
-                    <td colspan="2"> 
+                    <td colspan="4"> 
                      <form name="frmModificarMarca" action="../ControladorMarca" method="POST">
                                 <table align="center" BGCOLOR="yellow">
                                 <thead>
@@ -107,7 +110,7 @@
                     </td>
                 </tr>
                  <tr>
-                    <td colspan="2" BGCOLOR="yellow">
+                    <td colspan="3" BGCOLOR="yellow">
                         <form name="frmBuscarMarca" action="../ControladorMarca" method="POST">
                            <table align="center" BGCOLOR="yellow">
                                 <thead>
@@ -128,7 +131,7 @@
                             </table>
                         </form>
                          </td><!termina el fomulario de buscar marca!>
-                    <td colspan="2" BGCOLOR="yellow"> 
+                    <td colspan="4" BGCOLOR="yellow"> 
                         <form name="btnEliminarMarca" action="../ControladorMarca" method="POST">
                            <table align="center" BGCOLOR="yellow">
                                 <thead>

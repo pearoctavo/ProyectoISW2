@@ -20,8 +20,8 @@
     session.setAttribute("tienda", tienda);
     
     ArrayList<Vehiculo> vehiculos = tienda.darListaVehiculos();
-    ArrayList<Alquiler> alquileres = tienda.darListaAlquileres();
-    ArrayList<Cliente> clientes = tienda.darListaClientes();
+    //ArrayList<Alquiler> alquileres = tienda.darListaAlquileres();
+    //ArrayList<Cliente> clientes = tienda.darListaClientes();
     
 %>
 <html>
@@ -33,17 +33,18 @@
         <table border="1" align="center">
             <thead>
                 <tr>
-                    <th colspan="6" align="center"><h1>Webapps ALVe</h1></th>
+                    <th colspan="7" align="center"><h1>Webapps ALVe</h1></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td align="center"><a href="index.jsp" target="_top">Inicio</a></td>
-                    <td align="center"><a href="Vehiculo/vehiculo.jsp" target="_top">Vehiculo</a></td>
-                    <td align="center"><a href="Marca/marca.jsp" target="_top">Marca</a></td>           
-                    <td align="center"><a href="Linea/linea.jsp" target="_top">Linea</a></td>
-                    <td align="center"><a href="ciudad/ciudad.jsp" target="_top">Ciudad</a></td>
-                    <td align="center"><a href="alquiler/alquiler.jsp" target="_top">Alquiler</a></td>
+                    <td align="center"><a href="../index.jsp" target="_top">Inicio</a></td>
+                    <td align="center"><a href="../Vehiculo/vehiculo.jsp" target="_top">Vehiculo</a></td>
+                    <td align="center"><a href="../Marca/marca.jsp" target="_top">Marca</a></td>           
+                    <td align="center"><a href="../Linea/linea.jsp" target="_top">Linea</a></td>
+                    <td align="center"><a href="../ciudad/ciudad.jsp" target="_top">Ciudad</a></td>
+                    <td align="center"><a href="../cliente/cliente.jsp" target="_top">Cliente</a></td>
+                    <td align="center"><a href="alquiler.jsp" target="_top">Alquiler</a></td>
                 </tr>
                 <tr>
                     <td height="196" colspan="3">
@@ -54,7 +55,7 @@
                       </tr>
                       <tr>
                         <td>Vehiculo</td>
-                        <td colspan="2"><select name="a_vehiculos">                                            
+                        <td colspan="3"><select name="a_vehiculos">                                            
                                                 <%
                                                     for (int i= 0; i<vehiculos.size(); i++)
                                                     {
@@ -65,18 +66,18 @@
                       </tr>
                       <tr>
                         <td>Cliente</td>
-                        <td colspan="2"><select name="a_clientes">                                            
+                        <td colspan="4"><select name="a_clientes">                                            
                                                 <%
-                                                    for (int i= 0; i<clientes.size(); i++)
+                                                    /*for (int i= 0; i<clientes.size(); i++)
                                                     {
                                                         out.println("<option>"+clientes.get(i).getNombres()+"</option>");
-                                                    }
+                                                    }*/
                                                 %>
                                             </select></td>
                       </tr>
                       <tr>
                         <td>Horas</td>
-                        <td colspan="2"><input type="text" name="a_horas" value="" /></td>
+                        <td colspan="3"><input type="text" name="a_horas" value="" /></td>
                       </tr>
                       <tr>
                         <td>&nbsp;</td>

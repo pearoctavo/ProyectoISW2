@@ -32,7 +32,7 @@
         <table border="1" align="center">
             <thead>
                 <tr>
-                    <th colspan="4" align="center"><h1>Vehiculo</h1></th>
+                    <th colspan="7" align="center"><h1>Vehiculo</h1></th>
                 </tr>
             </thead>
             <tbody>
@@ -41,9 +41,12 @@
                     <td align="center"><a href="vehiculo.jsp" target="_top">Vehículo</a></td>
                     <td align="center"><a href="../Marca/marca.jsp" target="_top">Marca</a></td>
                     <td align="center"><a href="../Linea/linea.jsp" target="_top">Linea</a></td>
+                    <td align="center"><a href="../ciudad/ciudad.jsp" target="_top">Ciudad</a></td>
+                    <td align="center"><a href="../cliente/cliente.jsp" target="_top">Cliente</a></td>
+                    <td align="center"><a href="../alquiler/alquiler.jsp" target="_top">Alquiler</a></td>
                 </tr>
                 <tr>
-                    <td colspan="2" bgcolor="yellow">
+                    <td colspan="3" bgcolor="yellow">
                         <form name="frmAdicionarVehiculo" action="../ControladorVehiculo" method="POST">
                             <table align= "center" bgcolor="yellow" border="0">
                                 <thead>
@@ -95,7 +98,7 @@
                             </table>
                         </form>
                     </td>
-                    <td colspan="2">
+                    <td colspan="4">
                         <form name="frmModificarVehiculo" action="../ControladorVehiculo" method="POST">
                             <table align= "center" bgcolor="yellow" border="0">
                                 <thead>
@@ -161,7 +164,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" bgcolor="yellow">
+                    <td colspan="3" bgcolor="yellow">
                         <form name="frmBuscarVechiculo" action="../ControladorVehiculo" method="POST">
                             <table align="center" border="0" bgcolor="yellow">
                                 <thead>
@@ -181,7 +184,7 @@
                             </table>
                         </form>
                     </td>
-                    <td colspan="2" bgcolor='yellow'>
+                    <td colspan="4" bgcolor='yellow'>
                         <form name="frmEliminarVehiculo" action="../ControladorVehiculo" method="POST">
                             <table align="center" border="0" bgcolor="yellow">
                                 <thead>
