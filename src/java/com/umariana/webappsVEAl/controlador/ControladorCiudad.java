@@ -50,7 +50,7 @@ public class ControladorCiudad extends HttpServlet {
         String operacionBuscar = request.getParameter("btnBuscar");
         
         String espacio = "      ";
-        String mImagen = "";
+        String imagen = "";
         String mensaje = "";
         
         if (operacionAgregar != null && operacionAgregar.equals("Agregar"))
@@ -61,7 +61,7 @@ public class ControladorCiudad extends HttpServlet {
                 
                 String nombreCiudad = request.getParameter("a_ciudad_nombre");
 
-                tienda.adicionarCiudad(nombreCiudad);
+                //tienda.adicionarCiudad(nombreCiudad);
 
                 mensaje = "El la ciudad de nombre: " + nombreCiudad + " fue registrada con éxito";
 
@@ -80,7 +80,7 @@ public class ControladorCiudad extends HttpServlet {
                 String nombreCiudad = request.getParameter("m_ciudad");
                 String nuevoNombre = request.getParameter("m_ciudad_nombre");
 
-                tienda.modificarCiudad(nombreCiudad,nuevoNombre);
+                //tienda.modificarCiudad(nombreCiudad,nuevoNombre);
 
                 mensaje = "La ciudad de nombre: " + nombreCiudad + " fue modificada con éxito";
                 session.setAttribute("mensaje", mensaje);
@@ -98,10 +98,10 @@ public class ControladorCiudad extends HttpServlet {
             {
                 String nombre = request.getParameter("b_Ciudad");
 
-                Ciudad ciudad = tienda.buscarCiudad(nombre);
+                //Ciudad ciudad = tienda.buscarCiudad(nombre);
              
-                mensaje = "Datos de la ciudad \n" +
-                        "nombre: " + espacio + ciudad.getNombreCiudad();
+                //mensaje = "Datos de la ciudad \n" +
+                //        "nombre: " + espacio + ciudad.getNombreCiudad();
                 
                 session.setAttribute("mensaje", mensaje);
 
@@ -117,7 +117,7 @@ public class ControladorCiudad extends HttpServlet {
             {
                 String nombre = request.getParameter("e_Ciudad");
 
-                tienda.eliminarCiudad(nombre);
+                //tienda.eliminarCiudad(nombre);
              
                 mensaje = "La ciudad con el nombre " + nombre + " fue eliminada con éxito";
                 session.setAttribute("mensaje", mensaje);
@@ -130,7 +130,7 @@ public class ControladorCiudad extends HttpServlet {
             }
         }
         }
-    }
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
