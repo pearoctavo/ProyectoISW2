@@ -49,7 +49,7 @@
                 <tr>
                     <td height="196" colspan="3">
                         <form name="frmAdicionarAlquiler" action="../ControladorAlquiler" method="POST">
-                        <table width="261" height="185" border="0" align="center" BGCOLOR="yellow">
+                        <table width="261" height="185" border="0" align="center" BGCOLOR="yellow" >
                       <tr>
                         <td colspan="3"><div align="center"><strong>ADICIONAR ALQUILER</strong></div></td>
                       </tr>
@@ -70,7 +70,7 @@
                                                 <%
                                                     /*for (int i= 0; i<clientes.size(); i++)
                                                     {
-                                                        out.println("<option>"+clientes.get(i).getNombres()+"</option>");
+                                                        out.println("<option>"+clientes.get(i).getIdentificacion()+"</option>");
                                                     }*/
                                                 %>
                                             </select></td>
