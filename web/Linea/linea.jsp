@@ -45,7 +45,7 @@
       <table border="1" align="center">
             <thead>
                 <tr>
-                    <th colspan="4" align="center"><h1>Linea</h1></th>
+                    <th colspan="7" align="center"><h1>Linea</h1></th>
                    
                 </tr>
             </thead>
@@ -55,9 +55,12 @@
                     <td align="center"><a href="../Vehiculo/vehiculo.jsp" target="_top">Vehiculo</a></td>
                     <td align="center"><a href="../Marca/marca.jsp" target="_top">Marca</a></td>
                     <td align="center"><a href="linea.jsp" target="_top">Linea</a></td>
+                    <td align="center"><a href="../ciudad/ciudad.jsp" target="_top">Ciudad</a></td>
+                    <td align="center"><a href="../cliente/cliente.jsp" target="_top">Cliente</a></td>
+                    <td align="center"><a href="../alquiler/alquiler.jsp" target="_top">Alquiler</a></td>
                 </tr>
                  <tr>    
-                    <td colspan="2" bgcolor="yellow"><!TABLA DE ADICIONA LINEA!>
+                    <td colspan="3" bgcolor="yellow"><!TABLA DE ADICIONA LINEA!>
                         <form name="frmAdicionarLinea" action="../ControladorLinea" method="POST">
                             <table border="0" bgcolor="yellow">
                                 <thead>
@@ -92,7 +95,7 @@
                             </table><!Finaliza formulario adicionar Linea!>
                         </form>                    
                     </td>
-                    <td colspan="2" bgcolor="yellow" >
+                    <td colspan="4" bgcolor="yellow" >
                         <form name="frmModificarLinea" action="../ControladorLinea" method="POST">
                             <table border="0" bgcolor="yellow"><!TABLA DE MODIFICAR LINEA!>
                                 <thead>
@@ -135,7 +138,7 @@
                     </td>                    
                 </tr>
                 <tr>                    
-                    <td colspan="2"  bgcolor="yellow" aling="center" >
+                    <td colspan="3"  bgcolor="yellow" aling="center" >
                         <form name="frmBuscarLinea" action="../ControladorLinea" method="POST">
                             <table align="center" BGCOLOR="yellow"><!TABLA DE BUSCAR LINEA!>
                                 <thead>
@@ -171,7 +174,7 @@
                             </table><!Finaliza formulario buscar Linea!>
                         </form>                        
                     </td>
-                    <td colspan="2" bgcolor="yellow">
+                    <td colspan="4" bgcolor="yellow">
                         <form name="frmBuscarLinea" action="../ControladorLinea" method="POST">
                             <!TABLA DE ELIMINAR LINEA!>
                             <table border="0" align="center">
