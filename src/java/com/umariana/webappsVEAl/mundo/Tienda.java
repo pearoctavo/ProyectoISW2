@@ -89,7 +89,7 @@ public class Tienda
             ciudadDAO = new CiudadDAO();
             ciudades = ciudadDAO.consultar();
             clienteDAO = new ClienteDAO();
-            //clientes = clienteDAO.consultar();
+            clientes = clienteDAO.consultar();
             marcaDAO = new MarcaDAO();
             marcas = marcaDAO.consultar();
             vehiculoDAO = new VehiculoDAO();
@@ -147,7 +147,7 @@ public class Tienda
         if (cliente == null)
         {
             cliente = new Cliente(pNombre, pApellidos, pIdentificacion, pTelefono, pEmail, pCiudad);
-            //clienteDAO.agregarVehiculo(cliente);
+            clienteDAO.agregarCliente(cliente);
             clientes.add(cliente);
         }
         else
@@ -369,7 +369,7 @@ public class Tienda
         Cliente cliente = buscarCliente(pIdentificacion);
         if (cliente != null)
         {
-            //clienteDAO.eliminarMarca(cliente);
+            clienteDAO.eliminarCliente(cliente);
             clientes.remove(cliente);
         }
         else
