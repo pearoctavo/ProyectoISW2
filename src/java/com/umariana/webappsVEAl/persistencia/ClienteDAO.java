@@ -126,10 +126,10 @@ public class ClienteDAO {
      * @throws ClassNotFoundException
      * @throws SQLException 
      */
-    public int eliminarVehiculo(Vehiculo pCliente) throws ClassNotFoundException, SQLException
+    public int eliminarCliente(Cliente pCliente) throws ClassNotFoundException, SQLException
     {
         int resultado = -1;
-        String sql = "DELETE FROM vehiculo WHERE placa='"+pVehiculo.getPlaca()+"'";
+        String sql = "DELETE FROM cliente WHERE identificacion='"+pCliente.getIdentificacion()+"'";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
@@ -143,17 +143,17 @@ public class ClienteDAO {
 
     /**
      * 
-     * @param pPlaca
-     * @param pVehiculo
+     * @param pIdentificacion
+     * @param pCliente
      * @return
      * @throws ClassNotFoundException
      * @throws SQLException 
      */
-    public int modificarVehiculo(String pPlaca, Vehiculo pVehiculo) throws ClassNotFoundException, SQLException
+    public int modificarCliente(String pIdentificacion, Cliente pCliente) throws ClassNotFoundException, SQLException
     {
         int resultado = -1;
-        String sql = "UPDATE vehiculo SET placa='"+ pVehiculo.getPlaca() +"', costo="+ pVehiculo.getCosto() +", imagen='"+ pVehiculo.getImagen() +"', linea='"+ pVehiculo.getLinea() +"', marca='"+ pVehiculo.getMarca() +"', modelo='"+ pVehiculo.getModelo() +"' "
-                + "WHERE placa='"+ pPlaca +"'";
+        String sql = "UPDATE cliente SET identificacion='"+ pCliente.getIdentificacion() +"', nombres="+ pCliente.getNombres() +", apellidos='"+ pCliente.getApellidos() +"', email='"+ pCliente.getEmail() +"', telefono='"+ pCliente.getTelefono() +"', ciudad='"+ pCliente.getCiudad() +"' "
+                + "WHERE identificacion='"+ pIdentificacion +"'";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
