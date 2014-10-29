@@ -27,7 +27,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Gestionar Alquiler</title>
     </head>
     <body>
         <table border="1" align="center">
@@ -94,17 +94,19 @@
                     </tr>
                     <tr>
                       <td>Vehiculo</td>
-                      <td colspan="2"><%
+                      <td colspan="2">
+                          <select name="b_vehiculos">
+                          <%
                                                     for (int i= 0; i<vehiculos.size(); i++)
                                                     {
                                                         out.println("<option>"+vehiculos.get(i).getPlaca()+"</option>");
                                                     }
-                                                %></td>
+                                                %></select></td>
                     </tr>
                     <tr>
                       <td>&nbsp;</td>
-                      <td><input type="submit" value="Agregar" name="btnBuscar" /></td>
-                      <td><input type="submit" value="cancelar" name="btnCancelarB" /></td>
+                      <td><input type="submit" value="buscar" name="btnBuscar" /></td>
+                      <td><input type="submit" value="cancelarb" name="btnCancelarB" /></td>
                     </tr>
                   </table>
                       </form>
