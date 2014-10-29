@@ -51,17 +51,16 @@ public class ControladorAlquiler extends HttpServlet {
         {
             try
             {
-                //String nCliente =  request.getParameter("a_alquiler_cliente");
-                Cliente cliente =(Cliente) session.getAttribute("cliente");
-                int nHoras = Integer.parseInt(request.getParameter("a_alquiler_horas"));
-                Vehiculo vehiculo = (Vehiculo)session.getAttribute("vehiculo");                              
+                String nCliente =  request.getParameter("a_clientes");                
+                int nHoras = Integer.parseInt(request.getParameter("a_horas"));
+                String nVehiculo = request.getParameter("a_vehiculos");                              
                 
                 
-                //por implementar // tienda.adicionarAlquiler(cliente, nHoras,vehiculo);
+                tienda.adicionarAlquiler(nCliente, nHoras,nVehiculo);
 
-                mensaje = "Detalles:  Cliente" + cliente.getNombres() +" "+cliente.getApellidos()+
+                mensaje = "Detalles:  Cliente" + nCliente+
                           "\nNumero de horas " + nHoras + 
-                          "\nVehiculo:"+ vehiculo.getPlaca() +                        
+                          "\nVehiculo:"+ nVehiculo  +                        
                           "\n Este alquiler fue registrado con éxito";
 
                 session.setAttribute("mensaje", mensaje);
