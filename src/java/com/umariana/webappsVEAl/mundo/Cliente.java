@@ -162,6 +162,4 @@ public class Cliente {
     public void setTelefono(String pTelefono) {
         this.telefono = pTelefono;
     }
-    
-    
 }
