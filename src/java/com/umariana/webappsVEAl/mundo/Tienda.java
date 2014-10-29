@@ -36,6 +36,10 @@ public class Tienda
     
     private VehiculoDAO vehiculoDAO;
     
+    //private ClienteDAO clienteDAO;
+    
+    //private CiudadDAO ciudadDAO;
+    
     /// ---------------------------------------
     /// Constructor
     /// ---------------------------------------
@@ -50,6 +54,9 @@ public class Tienda
             marcas = marcaDAO.consultar();
             vehiculoDAO = new VehiculoDAO();
             vehiculos = vehiculoDAO.consultar();
+            //clientes = clienteDAO.consultar();
+            //ciudades = ciudadDAO.consultar();
+            
         } 
         catch (SQLException ex) 
         {
@@ -67,6 +74,31 @@ public class Tienda
     /// ---------------------------------------
     /// Metodos
     /// ---------------------------------------
+    
+    /**
+     * Método que adiciona un nuevo cliente al sistema
+     * @param pNombre - nombre del cliente que se quiere adicionar. pNombre != null 
+     * @param pApellidos - Apellidos del cliente. pApellidos != null.
+     * @param pIdentificacion - identificacion del cliente. pIdentificacion != null.
+     * @param pTelefono - Telefono del cliente. pTelefono != null.
+     * @param pEmail - email del cliente. pEmail != null.
+     * @param pCiudad - Ciudad donde reside el cliente. pCiudad != null.
+     * @throws Exception - El cliente ya existe
+     */
+    
+   /**public void adicionarCliente(String pNombre, String pApellidos, String pIdentificacion, String pTelefono, String pEmail, String pCiudad) throws Exception
+    {
+        Cliente cliente = buscarCliente(pIdentificacion);
+        if (cliente == null)
+        {
+            cliente = new Cliente(pNombre, pApellidos, pIdentificacion, pTelefono, pEmail, pCiudad);
+            clienteDAO.agregarVehiculo(cliente);
+            clientes.add(cliente);
+        }
+        else
+            throw new Exception("El cliente con identificacion: " + pIdentificacion + " ya se encuetra registrado.");
+    }**/
+    
     /**
      * Método que adiciona una nueva línea de marca vehicular al sistema
      * @param pMarca - Marca de la línea. pMarca != null
@@ -192,6 +224,28 @@ public class Tienda
         return marca;
     }
     
+    
+    /**
+     * Método que retorna una ciudad dado su nombre como parametro.
+     * @param pNombreCiudad- Nombre de la ciudad a buscar. pNombreciu != null.
+     * @return ciudad
+     * @throws Exception - Si la ciudad no existe
+     */
+    /**public Ciudad buscarCiudad(String pNombreCiudad) throws Exception
+    {
+        Ciudad ciudad = null;
+        boolean encontrado = false;
+        for (int i=0; i<ciudades.size() && !encontrado; i++)
+        {
+            if (ciudades.get(i).getNombreCiudad().equals(pNombreCiudad))
+            {
+                ciudad = ciudades.get(i);
+                encontrado = true;
+            }
+        }
+        return ciudad;
+    }*/
+    
     /**
      * Método que retorna un vehículo dada su placa como parametro
      * @param pPlaca - Placa del vehículo a buscar. pPlaca != null.
@@ -212,6 +266,24 @@ public class Tienda
         }
         return vehiculo;
     }
+    
+    
+    /**
+     * Método que eliminar un cliente del sistema dado como parametro la identificacion.
+     * @param pIdentificacion - identificacion del cliente. pIdentificacion != null.
+     * @throws Exception - El cliente no existe.
+     */
+    /**public void eliminarCliente(String pIdentificacion) throws Exception
+    {
+        Cliente cliente = buscarCliente(pIdentificacion);
+        if (cliente != null)
+        {
+            clienteDAO.eliminarMarca(cliente);
+            clientes.remove(cliente);
+        }
+        else
+            throw new Exception("El cliente con identificacion: " + pIdentificacion + " no se encuetra registrada.");
+    }*/
     
     /**
      * Método que elimina una línea de marca vehicular del sistema según su nombre.
@@ -379,4 +451,23 @@ public class Tienda
     {
         return vehiculos;
     }
+    
+/**
+     * Método que retorna la lista de los clientes registrados en el sistema
+     * @return clientes
+     */
+    /**public ArrayList<Cliente> darListaClientes()
+    {
+        return clientes;
+    }
+    
+    
+   /**
+     * Método que retorna la lista de las ciudades registrados en el sistema
+     * @return ciudades
+     */
+   /** public ArrayList<Ciudad> darListaCiudades()
+    {
+       return ciudades;
+    }*/
 }
