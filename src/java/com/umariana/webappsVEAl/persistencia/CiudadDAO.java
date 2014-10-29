@@ -121,15 +121,15 @@ public class CiudadDAO {
     
     /**
      * 
-     * @param pVehiculo
+     * @param pCiudad
      * @return
      * @throws ClassNotFoundException
      * @throws SQLException 
      */
-    public int eliminarVehiculo(Vehiculo pVehiculo) throws ClassNotFoundException, SQLException
+    public int eliminarCiudad(Ciudad pCiudad) throws ClassNotFoundException, SQLException
     {
         int resultado = -1;
-        String sql = "DELETE FROM vehiculo WHERE placa='"+pVehiculo.getPlaca()+"'";
+        String sql = "DELETE FROM ciudad WHERE nombre='"+pCiudad.getNombreCiudad()+"'";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
@@ -143,17 +143,17 @@ public class CiudadDAO {
 
     /**
      * 
-     * @param pPlaca
-     * @param pVehiculo
+     * @param pNombre
+     * @param pCiudad
      * @return
      * @throws ClassNotFoundException
      * @throws SQLException 
      */
-    public int modificarVehiculo(String pPlaca, Vehiculo pVehiculo) throws ClassNotFoundException, SQLException
+    public int modificarCiudad(String pNombre, Ciudad pCiudad) throws ClassNotFoundException, SQLException
     {
         int resultado = -1;
-        String sql = "UPDATE vehiculo SET placa='"+ pVehiculo.getPlaca() +"', costo="+ pVehiculo.getCosto() +", imagen='"+ pVehiculo.getImagen() +"', linea='"+ pVehiculo.getLinea() +"', marca='"+ pVehiculo.getMarca() +"', modelo='"+ pVehiculo.getModelo() +"' "
-                + "WHERE placa='"+ pPlaca +"'";
+        String sql = "UPDATE ciudad SET nombre='"+ pNombre +"'"
+                + "WHERE placa='"+ pCiudad.getNombreCiudad() +"'";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
