@@ -38,7 +38,7 @@ public class AlquilerDAO {
     /**
     * Constructor de la clase vehiculoDAO.
     */
-    public VehiculoDAO()
+    public AlquilerDAO()
     {
         fachada = new Fachada();
     }
