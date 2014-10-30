@@ -9,20 +9,7 @@
 <%@page import="com.umariana.webappsVEAl.mundo.Marca"%>
 <%@page import="com.umariana.webappsVEAl.mundo.Tienda"%>
 <%@page import="com.umariana.webappsVEAl.mundo.Linea"%>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-
-<script type="text/javascript">
-            //carga al inicio, cuando el objeto document esté listo
-            $(document).ready(function(){
-                $("#lista_marca").load("marcasServlet");
-            })
-            function showProducts(){
-                //obtiene los objetos marcas, y obtiene el valor del objeto
-                var code=$("#lista_marca").val(); //ya se tiene el objeto select
-                //llama al servlet con el parametro seleccionado
-                $("#lista_lineas").load("lineasServlet", {lista_marca:code})
-            }
-</script>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 
 <%  Tienda tienda = (Tienda) session.getAttribute("tienda"); 
     
@@ -33,6 +20,7 @@
     
     ArrayList<Marca> marcas = tienda.darListaMarcas();
     //ArrayList<Linea> lineas = tienda..darListaLineas();
+    pageContext.setAttribute("marcasJstl", marcas);
 %>
 
 <!DOCTYPE html>
@@ -72,14 +60,12 @@
                                     <tr>
                                         <td>Marca</td>
                                         <td colspan="2">
-                                            <select name="a_linea_marca">
-                                                <option>seleccione</option>
-                                                <%
-                                                    for (int i=0; i<marcas.size();i++){
-                                                        out.println("<option>"+marcas.get(i).getNombreMarca()+"</option>");
-                                                    }
-                                                %>                                                 
-                                            </select>
+                                            <select name="a_linea_marca">                                               
+                                                    <option>Selecione</option>
+                                                    <c:forEach var="listaMarcas"  items="${marcasJstl}">
+                                                      <option><c:out value="${listaMarcas}"/></option>
+                                                    </c:forEach>                                          
+                                            </select>  
                                         </td>
                                     </tr>
                                     <tr>

@@ -7,6 +7,8 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.umariana.webappsVEAl.mundo.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+
 <!DOCTYPE html>
 
 
@@ -15,9 +17,10 @@
     if (tienda == null)
         tienda = new Tienda();
     
-    session.setAttribute("tienda", tienda);
+    session.setAttribute("tienda", tienda);    
+    ArrayList<Ciudad> ciudades = tienda.darListaCiudades(); 
     
-    //ArrayList<Ciudad> ciudades = tienda.darListaCiudades();    
+    pageContext.setAttribute("ciudadesJstl", ciudades);    
 %>
 
 <html>
@@ -78,12 +81,10 @@
                                         <td>Ciudad</td>
                                         <td>
                                             <select name="m_ciudad">
-                                                <%  /*
-                                                    for (int i= 0; i<ciudades.size(); i++)
-                                                    {
-                                                        out.println("<option>"+ciudades.get(i).getNombreCiudad()+"</option>");
-                                                    }*/
-                                                %>
+                                                <option>Selecione</option>
+                                                <c:forEach var="listaCiudades"  items="${ciudadesJstl}">
+                                                <option><c:out value="${listaCiudades}"/></option>
+                                                </c:forEach> 
                                             </select>
                                         </td>
                                     </tr>                                    
@@ -137,11 +138,11 @@
                                         <td></td>
                                         <td>
                                             <select name="e_Ciudad">
-                                                <%/*
+                                                <%
                                                     for (int i= 0; i<ciudades.size(); i++)
                                                     {
                                                         out.println("<option>"+ciudades.get(i).getNombreCiudad()+"</option>");
-                                                    }*/
+                                                    }
                                                 %>
                                             </select>
                                         </td>

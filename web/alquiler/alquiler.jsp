@@ -10,6 +10,8 @@
 <%@page import="com.umariana.webappsVEAl.mundo.Vehiculo"%>
 <%@page import="com.umariana.webappsVEAl.mundo.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
+
 <!DOCTYPE html>
 
 <%  Tienda tienda = (Tienda) session.getAttribute("tienda"); 
@@ -23,6 +25,7 @@
     //ArrayList<Alquiler> alquileres = tienda.darListaAlquileres();
     //ArrayList<Cliente> clientes = tienda.darListaClientes();
     
+    pageContext.setAttribute("vehiculosJstl", vehiculos);        
 %>
 <html>
     <head>
@@ -55,13 +58,11 @@
                       </tr>
                       <tr>
                         <td>Vehiculo</td>
-                        <td colspan="3"><select name="a_vehiculos">                                            
-                                                <%
-                                                    for (int i= 0; i<vehiculos.size(); i++)
-                                                    {
-                                                        out.println("<option>"+vehiculos.get(i).getPlaca()+"</option>");
-                                                    }
-                                                %>
+                        <td colspan="3"><select name="a_vehiculos"> 
+                                                <option>Selecione</option>
+                                                    <c:forEach var="listaVehiculos"  items="${vehiculosJstl}">
+                                                      <option><c:out value="${listaVehiculos}"/></option>
+                                                    </c:forEach>  
                                             </select></td>
                       </tr>
                       <tr>
@@ -97,12 +98,11 @@
                       <td>Vehiculo</td>
                       <td colspan="2">
                           <select name="b_vehiculos">
-                          <%
-                                                    for (int i= 0; i<vehiculos.size(); i++)
-                                                    {
-                                                        out.println("<option>"+vehiculos.get(i).getPlaca()+"</option>");
-                                                    }
-                                                %></select></td>
+                                <option>Selecione</option>
+                                <c:forEach var="listaVehiculos"  items="${vehiculosJstl}">
+                                <option><c:out value="${listaVehiculos}"/></option>
+                                </c:forEach>  
+                          </select></td>
                     </tr>
                     <tr>
                       <td>&nbsp;</td>

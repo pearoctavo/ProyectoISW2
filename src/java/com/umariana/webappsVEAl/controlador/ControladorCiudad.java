@@ -61,7 +61,7 @@ public class ControladorCiudad extends HttpServlet {
                 
                 String nombreCiudad = request.getParameter("a_ciudad_nombre");
 
-                //tienda.adicionarCiudad(nombreCiudad);
+                tienda.adicionarCiudad(nombreCiudad);
 
                 mensaje = "El la ciudad de nombre: " + nombreCiudad + " fue registrada con éxito";
 
@@ -98,10 +98,10 @@ public class ControladorCiudad extends HttpServlet {
             {
                 String nombre = request.getParameter("b_Ciudad");
 
-                //Ciudad ciudad = tienda.buscarCiudad(nombre);
+                Ciudad ciudad = tienda.buscarCiudad(nombre);
              
-                //mensaje = "Datos de la ciudad \n" +
-                //        "nombre: " + espacio + ciudad.getNombreCiudad();
+                mensaje = "Datos de la ciudad \n" +
+                        "nombre: " + espacio + ciudad.getNombreCiudad();
                 
                 session.setAttribute("mensaje", mensaje);
 
