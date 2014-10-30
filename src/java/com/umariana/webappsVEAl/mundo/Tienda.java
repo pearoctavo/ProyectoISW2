@@ -132,6 +132,24 @@ public class Tienda
     }
     
     /**
+     * Método que adiciona una nueva ciudad 
+     * @param pNombreCiudad - Nombre de la ciudad. pNombreciudad != null
+     * @throws Exception - La ciudad ya existe
+     */
+    public void adicionarCiudad(String pNombreCiudad) throws Exception
+     {
+        Ciudad ciudad = buscarCiudad(pNombreCiudad);
+        if (ciudad == null)
+        {            
+            ciudad = new Ciudad(pNombreCiudad);
+            ciudadDAO.agregarCiudad(ciudad);
+            ciudades.add(ciudad);
+        }
+        else
+            throw new Exception("La ciudad con nombre: " + pNombreCiudad + " ya se encuentra registrada.");
+    }    
+        
+    /**
      * Método que adiciona un nuevo cliente al sistema
      * @param pNombre - nombre del cliente que se quiere adicionar. pNombre != null 
      * @param pApellidos - Apellidos del cliente. pApellidos != null.
