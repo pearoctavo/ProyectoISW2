@@ -25,7 +25,7 @@
                     <td align="center"><a href="Marca/marca.jsp" target="_top">Marca</a></td>           
                     <td align="center"><a href="Linea/linea.jsp" target="_top">Linea</a></td>
                     <td align="center"><a href="ciudad/ciudad.jsp" target="_top">Ciudad</a></td>
-                    <td align="center"><a href="5cliente/cliente.jsp" target="_top">Cliente</a></td>
+                    <td align="center"><a href="cliente/cliente.jsp" target="_top">Cliente</a></td>
                     <td align="center"><a href="alquiler/alquiler.jsp" target="_top">Alquiler</a></td>
                 </tr>
                 <tr>

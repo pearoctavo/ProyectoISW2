@@ -102,7 +102,7 @@ public class ControladorCliente extends HttpServlet {
         {
             try
             {
-                String nIdentificacion =  request.getParameter("m_cliente");
+                String nIdentificacion =  request.getParameter("b_cliente");
 
                 Cliente cliente =  tienda.buscarCliente(nIdentificacion);
              

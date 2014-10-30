@@ -85,7 +85,7 @@ public class Tienda
         try 
         {
             alquilerDAO = new AlquilerDAO();
-            //alquileres = alquilerDAO.consultar();
+            alquileres = alquilerDAO.consultar();
             ciudadDAO = new CiudadDAO();
             ciudades = ciudadDAO.consultar();
             clienteDAO = new ClienteDAO();
@@ -121,7 +121,7 @@ public class Tienda
             if (vehiculo != null)
             {
                 Alquiler alquiler = new Alquiler(cliente, pHoras, vehiculo);
-                //alquilerDAO.agregarAlquiler(alquiler);
+                alquilerDAO.agregarAlquiler(alquiler);
                 alquileres.add(alquiler);
             }
             else
@@ -133,7 +133,7 @@ public class Tienda
     
     /**
      * Método que adiciona una nueva ciudad 
-     * @param pNombreCiudad - Nombre de la ciudad. pNombreciudad != null
+     * @param pNombreCiudad - Nombre de la ciudad. pNombreCiudad != null
      * @throws Exception - La ciudad ya existe
      */
     public void adicionarCiudad(String pNombreCiudad) throws Exception
@@ -370,7 +370,7 @@ public class Tienda
         Ciudad ciudad = buscarCiudad(pCiudad);
         if (ciudad != null)
         {
-            //ciudadDAO.eliminarCiudad(ciudad);
+            ciudadDAO.eliminarCiudad(ciudad);
             ciudades.remove(ciudad);
         }
         else
@@ -460,7 +460,7 @@ public class Tienda
             if (ciudad == null)
             {
                 ciudad.setNombreCiudad(pNombre);
-                //ciudadDAO.modificarCiudad(ciudad);
+                ciudadDAO.modificarCiudad(pCiudad, ciudad);
             }
             else
                 throw new Exception ("Ya existe ciudad con el nombre ingresado");
@@ -490,7 +490,7 @@ public class Tienda
             cliente.setIdentificacion(pIdentificacion);
             cliente.setNombres(pNombres);
             cliente.setTelefono(pTelefono);
-            //clienteDAO.modificarCliente(cliente);
+            clienteDAO.modificarCliente(pIdentificacion, cliente);
         }
         else
             throw new Exception ("No se encuentra el cliente registrado");
@@ -592,6 +592,15 @@ public class Tienda
         }
         else
             throw new Exception("El vehículo con placa: " + pPlaca + " no se encuetra registrado.");
+    }
+    
+    /**
+     * Método que retorna la lista de los alquileres vehiculares registrados en el sistema
+     * @return alquileres
+     */
+    public ArrayList<Alquiler> darListaAlquileres()
+    {
+       return alquileres;
     }
     
     /**
