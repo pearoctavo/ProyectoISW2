@@ -151,20 +151,20 @@ public class Tienda
         
     /**
      * Método que adiciona un nuevo cliente al sistema
-     * @param pNombre - nombre del cliente que se quiere adicionar. pNombre != null 
      * @param pApellidos - Apellidos del cliente. pApellidos != null.
-     * @param pIdentificacion - identificacion del cliente. pIdentificacion != null.
-     * @param pTelefono - Telefono del cliente. pTelefono != null.
-     * @param pEmail - email del cliente. pEmail != null.
      * @param pCiudad - Ciudad donde reside el cliente. pCiudad != null.
+     * @param pEmail - email del cliente. pEmail != null.
+     * @param pIdentificacion - identificacion del cliente. pIdentificacion != null.
+     * @param pNombre - nombre del cliente que se quiere adicionar. pNombre != null.
+     * @param pTelefono - Telefono del cliente. pTelefono != null.
      * @throws Exception - El cliente ya existe
      */
-    public void adicionarCliente(String pNombre, String pApellidos, String pIdentificacion, String pTelefono, String pEmail, String pCiudad) throws Exception
+    public void adicionarCliente(String pApellidos,String pCiudad, String pEmail,String pIdentificacion, String pNombre, String pTelefono) throws Exception
     {
         Cliente cliente = buscarCliente(pIdentificacion);
         if (cliente == null)
         {
-            cliente = new Cliente(pNombre, pApellidos, pIdentificacion, pTelefono, pEmail, pCiudad);
+            cliente = new Cliente(pApellidos, pCiudad,  pEmail, pIdentificacion, pNombre, pTelefono);
             clienteDAO.agregarCliente(cliente);
             clientes.add(cliente);
         }
