@@ -5,6 +5,8 @@
  */
 package com.umariana.webappsVEAl.persistencia;
 
+import com.umariana.webappsVEAl.mundo.Alquiler;
+import com.umariana.webappsVEAl.mundo.Cliente;
 import com.umariana.webappsVEAl.mundo.Tienda;
 import com.umariana.webappsVEAl.mundo.Vehiculo;
 import java.sql.Connection;
@@ -17,6 +19,7 @@ import java.util.ArrayList;
  *
  * @author jairo
  */
+
 public class AlquilerDAO {
     
     /// ---------------------------------------
@@ -48,16 +51,16 @@ public class AlquilerDAO {
     /// ---------------------------------------
     /**
      * 
-     * @param pVehiculo
+     * @param pAlquiler
      * @return
      * @throws ClassNotFoundException
      * @throws SQLException 
      */
-    public int agregarVehiculo(Vehiculo pVehiculo) throws ClassNotFoundException, SQLException
+    public int agregarAlquiler(Alquiler pAlquiler) throws ClassNotFoundException, SQLException
     {
         int resultado = -1;
-        String sql = "INSERT INTO vehiculo (placa, costo, imagen, linea, marca, modelo) "
-                + "VALUES('" + pVehiculo.getPlaca()+ "', " + pVehiculo.getCosto() + ", '"+ pVehiculo.getImagen() + "', '" + pVehiculo.getLinea() + "', '" + pVehiculo.getMarca() + "', '"+ pVehiculo.getModelo() +"')";
+        String sql = "INSERT INTO alquiler (cliente, vehiculo, horas) "
+                + "VALUES('" + pAlquiler.getCliente()+ "', " + pAlquiler.getVehiculo() + ", "+ pAlquiler.getHoras() + ")";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
@@ -77,8 +80,8 @@ public class AlquilerDAO {
      */
     public ArrayList consultar( ) throws SQLException, ClassNotFoundException
     {
-        ArrayList vehiculos = new ArrayList();
-        String sqlConsultar = "SELECT placa, costo, imagen, linea, marca, modelo FROM vehiculo";
+        ArrayList alquileres = new ArrayList();
+        String sqlConsultar = "SELECT cliente,vehiculo,horas FROM alquiler";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
@@ -86,82 +89,14 @@ public class AlquilerDAO {
             ResultSet tabla = instruccion.executeQuery(sqlConsultar);
             while(tabla.next())
             {
-                Vehiculo vehiculo = new Vehiculo(Double.parseDouble(tabla.getString("costo")), tabla.getString("imagen"), tabla.getString("linea"), tabla.getString("marca"), tabla.getString("modelo"), tabla.getString("placa") );
-                vehiculos.add(vehiculo);
+                Alquiler alquiler = new Alquiler(tabla.getString("cliente"), tabla.getString("vehiculo"),Integer.parseInt(tabla.getString("horas"))  );
+                alquileres.add(alquiler);
             }
         }
         fachada.desconectar(miConexion);
-        return vehiculos;
+        return alquileres;
     }
     
-    /**
-     * 
-     * @param pPlaca
-     * @return
-     * @throws SQLException
-     * @throws ClassNotFoundException 
-     */
-    public Vehiculo consultarPorPlaca(String pPlaca) throws SQLException, ClassNotFoundException
-    {
-        Vehiculo vehiculo = null;
-        String sqlConsultar = "SELECT placa, costo, imagen, linea, marca, modelo,nombre_linea FROM vehiculo WHERE placa='"+ pPlaca +"'";
-        Connection miConexion = fachada.conectar();
-        if(miConexion != null)
-        {
-            Statement instruccion = miConexion.createStatement();
-            ResultSet tabla = instruccion.executeQuery(sqlConsultar);
-            while(tabla.next())
-            {
-                vehiculo = new Vehiculo(Double.parseDouble(tabla.getString("costo")), tabla.getString("imagen"), tabla.getString("linea"), tabla.getString("marca"), tabla.getString("modelo"), tabla.getString("placa") );
-            }
-        }
-        fachada.desconectar(miConexion);
-        return vehiculo;
-    }
-    
-    /**
-     * 
-     * @param pVehiculo
-     * @return
-     * @throws ClassNotFoundException
-     * @throws SQLException 
-     */
-    public int eliminarVehiculo(Vehiculo pVehiculo) throws ClassNotFoundException, SQLException
-    {
-        int resultado = -1;
-        String sql = "DELETE FROM vehiculo WHERE placa='"+pVehiculo.getPlaca()+"'";
-        Connection miConexion = fachada.conectar();
-        if(miConexion != null)
-        {
-            Statement instruccion = (Statement) miConexion.createStatement();
-            resultado = ((java.sql.Statement) instruccion).executeUpdate(sql);
-            miConexion.close();
-        }
-        fachada.desconectar(miConexion);
-        return resultado;
-    }
-
-    /**
-     * 
-     * @param pPlaca
-     * @param pVehiculo
-     * @return
-     * @throws ClassNotFoundException
-     * @throws SQLException 
-     */
-    public int modificarVehiculo(String pPlaca, Vehiculo pVehiculo) throws ClassNotFoundException, SQLException
-    {
-        int resultado = -1;
-        String sql = "UPDATE vehiculo SET placa='"+ pVehiculo.getPlaca() +"', costo="+ pVehiculo.getCosto() +", imagen='"+ pVehiculo.getImagen() +"', linea='"+ pVehiculo.getLinea() +"', marca='"+ pVehiculo.getMarca() +"', modelo='"+ pVehiculo.getModelo() +"' "
-                + "WHERE placa='"+ pPlaca +"'";
-        Connection miConexion = fachada.conectar();
-        if(miConexion != null)
-        {
-            Statement instruccion = (Statement) miConexion.createStatement();
-            resultado = ((java.sql.Statement) instruccion).executeUpdate(sql);
-            miConexion.close();
-        }
-        fachada.desconectar(miConexion);
-        return resultado;
-    }
+   
 }
+    
