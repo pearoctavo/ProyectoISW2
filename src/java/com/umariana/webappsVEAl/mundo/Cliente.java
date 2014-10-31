@@ -162,4 +162,13 @@ public class Cliente {
     public void setTelefono(String pTelefono) {
         this.telefono = pTelefono;
     }
+    
+    /**
+     * Metodo que retorna la representación en cadena de caracteres la clase
+     * @return identificacion
+     */
+    public String toString()
+    {
+        return identificacion;
+    }
 }

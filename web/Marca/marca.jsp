@@ -84,7 +84,7 @@
                                         <td>Marca</td>
                                         <td>
                                             <select name="m_marca">
-                                                    <option>Selecione</option>
+                                                    <option>Seleccione</option>
                                                     <c:forEach var="listaMarcas"  items="${marcasJstl}">
                                                       <option><c:out value="${listaMarcas}"/></option>
                                                     </c:forEach>                                                                                               
@@ -145,7 +145,7 @@
                                         <td></td>
                                         <td>
                                             <select name="e_marca">
-                                                <option>Selecione</option>
+                                                <option>Seleccione</option>
                                                 <c:forEach var="listaMarcas"  items="${marcasJstl}">
                                                     <option><c:out value="${listaMarcas}"/></option>
                                                 </c:forEach>                                                                                               

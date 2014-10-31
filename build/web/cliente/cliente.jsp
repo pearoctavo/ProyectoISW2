@@ -7,6 +7,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.umariana.webappsVEAl.mundo.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <!DOCTYPE html>
 
 <%  Tienda tienda = (Tienda) session.getAttribute("tienda"); 
@@ -16,8 +17,10 @@
     
     session.setAttribute("tienda", tienda);
     
-    //ArrayList<Ciudad> ciudades = tienda.darListaCiudades();
+    ArrayList<Ciudad> ciudades = tienda.darListaCiudades();
     //ArrayList<Cliente> clientes = tienda.darListaClientes();
+    
+    pageContext.setAttribute("ciudadesJstl", ciudades); 
 %>
 
 <html>
@@ -68,12 +71,10 @@
                                         <td>Ciudad: </td>
                                         <td>
                                             <select name="a_cliente_ciudad">
-                                                <%
-                                                    /*for (int i= 0; i<ciudades.size(); i++)
-                                                    {
-                                                        out.println("<option>"+ciudades.get(i).getNombreCiudad()+"</option>");
-                                                    }*/
-                                                %>
+                                                <option>Seleccione</option>
+                                                <c:forEach var="listaCiudades"  items="${ciudadesJstl}">
+                                                <option><c:out value="${listaCiudades}"/></option>
+                                                </c:forEach>                                                 
                                             </select>
                                         </td>
                                     </tr>

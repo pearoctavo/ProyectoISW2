@@ -81,7 +81,7 @@
                                         <td>Ciudad</td>
                                         <td>
                                             <select name="m_ciudad">
-                                                <option>Selecione</option>
+                                                <option>Seleccione</option>
                                                 <c:forEach var="listaCiudades"  items="${ciudadesJstl}">
                                                 <option><c:out value="${listaCiudades}"/></option>
                                                 </c:forEach> 
@@ -138,12 +138,10 @@
                                         <td></td>
                                         <td>
                                             <select name="e_Ciudad">
-                                                <%
-                                                    for (int i= 0; i<ciudades.size(); i++)
-                                                    {
-                                                        out.println("<option>"+ciudades.get(i).getNombreCiudad()+"</option>");
-                                                    }
-                                                %>
+                                                <option>Seleccione</option>
+                                                <c:forEach var="listaCiudades"  items="${ciudadesJstl}">
+                                                <option><c:out value="${listaCiudades}"/></option>
+                                                </c:forEach> 
                                             </select>
                                         </td>
                                     </tr>

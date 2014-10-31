@@ -43,6 +43,8 @@ public class ControladorAlquiler extends HttpServlet {
         session.setAttribute("tienda", tienda);
         
         String operacionAgregar =  request.getParameter("btnAgregar");
+        String operacionBuscar =  request.getParameter("btnBuscar");
+        
         
         String mensaje = "";
         String espacio = "      ";
@@ -64,6 +66,27 @@ public class ControladorAlquiler extends HttpServlet {
                           "\n Este alquiler fue registrado con éxito";
 
                 session.setAttribute("mensaje", mensaje);
+
+                response.sendRedirect("./respuesta.jsp");
+            }
+            catch( Exception e )
+            {
+                out.println(e.getMessage());
+            }
+        }        
+        else if(operacionBuscar != null && operacionBuscar.equals("Buscar"))
+        {
+            try
+            {
+                String nPlaca =  request.getParameter("b_alquiler");
+
+                /*Alquiler alquiler =  tienda.buscarAlquiler(nPlaca);
+             
+                mensaje = "Datos del Alquiler \n" +
+                        "\nCliente:  " + espacio + alquiler.getCliente()()+
+                        "\nPlaca: " + espacio + alquiler.getVehiculo()+ 
+                        "\nHorasas: " + espacio + alquiler.getHoras();
+                session.setAttribute("mensaje", mensaje);*/
 
                 response.sendRedirect("./respuesta.jsp");
             }

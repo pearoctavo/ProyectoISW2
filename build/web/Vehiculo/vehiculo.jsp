@@ -113,7 +113,7 @@
                                         <td>Vehículo: </td>
                                         <td colspan="2">
                                             <select name="m_placa">
-                                                 <option>Selecione</option>
+                                                 <option>Seleccione</option>
                                                     <c:forEach var="listaVehiculos"  items="${vehiculosJstl}">
                                                       <option><c:out value="${listaVehiculos}"/></option>
                                                     </c:forEach>   
@@ -197,7 +197,7 @@
                                         <td>Vehíuculo: </td>
                                         <td colspan="2">
                                             <select name="e_vehiculo_placa">
-                                                <option>Selecione</option>
+                                                <option>Seleccione</option>
                                                     <c:forEach var="listaVehiculos"  items="${vehiculosJstl}">
                                                       <option><c:out value="${listaVehiculos}"/></option>
                                                     </c:forEach>

@@ -22,10 +22,12 @@
     session.setAttribute("tienda", tienda);
     
     ArrayList<Vehiculo> vehiculos = tienda.darListaVehiculos();
-    //ArrayList<Alquiler> alquileres = tienda.darListaAlquileres();
-    //ArrayList<Cliente> clientes = tienda.darListaClientes();
+    ArrayList<Alquiler> alquileres = tienda.darListaAlquileres();
+    ArrayList<Cliente> clientes = tienda.darListaClientes();
     
-    pageContext.setAttribute("vehiculosJstl", vehiculos);        
+    pageContext.setAttribute("vehiculosJstl", vehiculos);
+    pageContext.setAttribute("clientesJstl", clientes);
+    
 %>
 <html>
     <head>
@@ -59,7 +61,7 @@
                       <tr>
                         <td>Vehiculo</td>
                         <td colspan="3"><select name="a_vehiculos"> 
-                                                <option>Selecione</option>
+                                                <option>Seleccione</option>
                                                     <c:forEach var="listaVehiculos"  items="${vehiculosJstl}">
                                                       <option><c:out value="${listaVehiculos}"/></option>
                                                     </c:forEach>  
@@ -68,12 +70,10 @@
                       <tr>
                         <td>Cliente</td>
                         <td colspan="4"><select name="a_clientes">                                            
-                                                <%
-                                                    /*for (int i= 0; i<clientes.size(); i++)
-                                                    {
-                                                        out.println("<option>"+clientes.get(i).getIdentificacion()+"</option>");
-                                                    }*/
-                                                %>
+                                                <option>Seleccione</option>
+                                                    <c:forEach var="listaClientes"  items="${clientesJstl}">
+                                                      <option><c:out value="${listaClientes}"/></option>
+                                                    </c:forEach>
                                             </select></td>
                       </tr>
                       <tr>
@@ -97,8 +97,8 @@
                     <tr>
                       <td>Vehiculo</td>
                       <td colspan="2">
-                          <select name="b_vehiculos">
-                                <option>Selecione</option>
+                          <select name="b_alquiler">
+                                <option>Seleccione</option>
                                 <c:forEach var="listaVehiculos"  items="${vehiculosJstl}">
                                 <option><c:out value="${listaVehiculos}"/></option>
                                 </c:forEach>  

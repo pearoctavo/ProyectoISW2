@@ -47,4 +47,15 @@ public class Ciudad
     {
         this.nombreCiudad = pNuevoNombreCiudad;
     }
+    /**
+     * Metodo que retorna la representación en cadena de caracteres la clase
+     * @return nombre
+     */
+    public String toString()
+    {
+        return nombreCiudad;
+    }
+    
+    
+    
 }

@@ -61,7 +61,7 @@
                                         <td>Marca</td>
                                         <td colspan="2">
                                             <select name="a_linea_marca">                                               
-                                                    <option>Selecione</option>
+                                                    <option>Seleccione</option>
                                                     <c:forEach var="listaMarcas"  items="${marcasJstl}">
                                                       <option><c:out value="${listaMarcas}"/></option>
                                                     </c:forEach>                                          
