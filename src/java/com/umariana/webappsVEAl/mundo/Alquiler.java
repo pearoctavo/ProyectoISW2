@@ -12,7 +12,7 @@ public class Alquiler
     /**
      * Cliente que alquila un vehículo
      */
-    private Cliente cliente;
+    private String cliente;
     
     /**
      * Número de horas que el vehículo es alquilado
@@ -22,7 +22,7 @@ public class Alquiler
     /**
      * Vehículo que ha sido alquilado por un cliente
      */
-    private Vehiculo vehiculo;
+    private String vehiculo;
 
     /// ---------------------------------------
     /// Constructor
@@ -33,7 +33,7 @@ public class Alquiler
      * @param pHoras - Número de horas que el vehículo es alquilado. pHoras != null
      * @param pVehiculo - Vehíclo alquilado. pVehiculo != null
      */
-    public Alquiler(Cliente pCliente, int pHoras, Vehiculo pVehiculo)
+    public Alquiler(String pCliente, int pHoras, String pVehiculo)
     {
         cliente = pCliente;
         horas = pHoras;
@@ -47,7 +47,7 @@ public class Alquiler
      * Método que retorna el cliente que alquila el vehículo
      * @return cliente
      */
-    public Cliente getCliente() 
+    public String getCliente() 
     {
         return cliente;
     }
@@ -56,7 +56,7 @@ public class Alquiler
      * Método que modifica el cliente que alquila el vehículo
      * @param pCliente - Cliente del vehiculo. pCliente != null
      */
-    public void setCliente(Cliente pCliente) 
+    public void setCliente(String pCliente) 
     {
         this.cliente = pCliente;
     }
@@ -83,7 +83,7 @@ public class Alquiler
      * Método que retorna el vehículo alquilado 
      * @return vehiculo
      */
-    public Vehiculo getVehiculo() 
+    public String getVehiculo() 
     {
         return vehiculo;
     }
@@ -92,7 +92,7 @@ public class Alquiler
      * Método que retorna el vehículo alquilado
      * @param pVehiculo - Vehíclo alquilado. pVehiculo != null
      */
-    public void setVehiculo(Vehiculo pVehiculo) 
+    public void setVehiculo(String pVehiculo) 
     {
         this.vehiculo = pVehiculo;
     }

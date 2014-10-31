@@ -120,7 +120,7 @@ public class Tienda
             Vehiculo vehiculo = buscarVehiculo(pVehiculo);
             if (vehiculo != null)
             {
-                Alquiler alquiler = new Alquiler(cliente, pHoras, vehiculo);
+                Alquiler alquiler = new Alquiler(pCliente, pHoras, pVehiculo);
                 //alquilerDAO.agregarAlquiler(alquiler);
                 alquileres.add(alquiler);
             }

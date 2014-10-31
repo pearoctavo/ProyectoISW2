@@ -89,7 +89,7 @@ public class AlquilerDAO {
             ResultSet tabla = instruccion.executeQuery(sqlConsultar);
             while(tabla.next())
             {
-                Alquiler alquiler = new Alquiler(tabla.getString("cliente"), tabla.getString("vehiculo"),Integer.parseInt(tabla.getString("horas"))  );
+                Alquiler alquiler = new Alquiler(tabla.getString("cliente"),Integer.parseInt(tabla.getString("horas")), tabla.getString("vehiculo")  );
                 alquileres.add(alquiler);
             }
         }
