@@ -57,7 +57,7 @@ public class ClienteDAO {
     {
         int resultado = -1;
         String sql = "INSERT INTO cliente (identificacion, nombres, apellidos, email, telefono, ciudad) "
-                + "VALUES('" + pCliente.getIdentificacion()+ "', " + pCliente.getNombres() + ", '"+ pCliente.getApellidos() + "', '" + pCliente.getEmail() + "', '" + pCliente.getTelefono() + "', '"+ pCliente.getCiudad() +"')";
+                + "VALUES('" + pCliente.getIdentificacion()+ "', '" + pCliente.getNombres() + "', '"+ pCliente.getApellidos() + "', '" + pCliente.getEmail() + "', '" + pCliente.getTelefono() + "', '"+ pCliente.getCiudad() +"')";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
@@ -152,7 +152,7 @@ public class ClienteDAO {
     public int modificarCliente(String pIdentificacion, Cliente pCliente) throws ClassNotFoundException, SQLException
     {
         int resultado = -1;
-        String sql = "UPDATE cliente SET identificacion='"+ pCliente.getIdentificacion() +"', nombres="+ pCliente.getNombres() +", apellidos='"+ pCliente.getApellidos() +"', email='"+ pCliente.getEmail() +"', telefono='"+ pCliente.getTelefono() +"', ciudad='"+ pCliente.getCiudad() +"' "
+        String sql = "UPDATE cliente SET identificacion='"+ pCliente.getIdentificacion() +"', nombres='"+ pCliente.getNombres() +"', apellidos='"+ pCliente.getApellidos() +"', email='"+ pCliente.getEmail() +"', telefono='"+ pCliente.getTelefono() +"', ciudad='"+ pCliente.getCiudad() +"' "
                 + "WHERE identificacion='"+ pIdentificacion +"'";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
