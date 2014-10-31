@@ -63,7 +63,7 @@ public class ControladorCiudad extends HttpServlet {
 
                 tienda.adicionarCiudad(nombreCiudad);
 
-                mensaje = "El la ciudad de nombre: " + nombreCiudad + " fue registrada con éxito";
+                mensaje = "la ciudad de nombre: " + nombreCiudad + " fue registrada con éxito";
 
                 session.setAttribute("mensaje", mensaje);
 

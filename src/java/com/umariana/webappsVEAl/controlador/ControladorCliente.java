@@ -62,8 +62,8 @@ public class ControladorCliente extends HttpServlet {
                 String nCiudad =  request.getParameter("a_cliente_ciudad");
                 String nEmail = request.getParameter("a_cliente_email");
                 String nTelefono = request.getParameter("a_cliente_telefono");
-                
-                tienda.adicionarCliente(nNombre, nApellido, nIdentificacion, nTelefono, nEmail, nCiudad);
+                                
+                tienda.adicionarCliente(nApellido, nCiudad, nEmail, nIdentificacion, nNombre, nTelefono);
 
                 mensaje = "El usuario:" + nNombre + espacio + nApellido +  " fue registrada con éxito";
                 
