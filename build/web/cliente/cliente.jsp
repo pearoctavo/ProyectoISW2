@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : cliente
     Created on : 20-oct-2014, 17:31:26
@@ -18,9 +19,10 @@
     session.setAttribute("tienda", tienda);
     
     ArrayList<Ciudad> ciudades = tienda.darListaCiudades();
-    //ArrayList<Cliente> clientes = tienda.darListaClientes();
+    ArrayList<Cliente> clientes = tienda.darListaClientes();
     
     pageContext.setAttribute("ciudadesJstl", ciudades); 
+    pageContext.setAttribute("clientesJstl", clientes);         
 %>
 
 <html>
@@ -108,12 +110,10 @@
                                         <td>Identificación Cliente: </td>
                                         <td>
                                             <select name="m_cliente_identificacion">
-                                                <%  
-                                                    /*for (int i= 0; i<clientes.size(); i++)
-                                                    {
-                                                        out.println("<option>"+clientes.get(i).getIdentificacion()+"</option>");
-                                                    }*/
-                                                %>
+                                               <option>Seleccione</option>
+                                                <c:forEach var="listaClientes"  items="${clientesJstl}">
+                                                <option><c:out value="${listaClientes}"/></option>
+                                                </c:forEach>   
                                             </select>
                                         </td>
                                     </tr>
@@ -129,12 +129,10 @@
                                         <td>Ciudad: </td>
                                         <td>
                                             <select name="m_cliente_ciudad">
-                                                <%
-                                                    /*for (int i= 0; i<ciudades.size(); i++)
-                                                    {
-                                                        out.println("<option>"+ciudades.get(i).getNombreCiudad()+"</option>");
-                                                    }*/
-                                                %>
+                                               <option>Seleccione</option>
+                                                <c:forEach var="listaCiudades"  items="${ciudadesJstl}">
+                                                <option><c:out value="${listaCiudades}"/></option>
+                                                </c:forEach>   
                                             </select>
                                         </td>
                                     </tr>
@@ -190,13 +188,11 @@
                                     <tr>
                                         <td>Identificación Cliente: </td>
                                         <td>
-                                            <select name="e_cliente">
-                                                <%  
-                                                    /*for (int i= 0; i<clientes.size(); i++)
-                                                    {
-                                                        out.println("<option>"+clientes.get(i).getIdentificacion()+"</option>");
-                                                    }*/
-                                                %>
+                                            <select name="e_cliente">                                                
+                                                <option>Seleccione</option>
+                                                <c:forEach var="listaClientes"  items="${clientesJstl}">
+                                                <option><c:out value="${listaClientes}"/></option>
+                                                </c:forEach>  
                                             </select>
                                         </td>
                                     </tr>

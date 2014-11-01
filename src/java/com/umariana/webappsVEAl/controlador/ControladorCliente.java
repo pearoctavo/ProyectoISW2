@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author ERICK
+ * @author Pear Team
  */
 @WebServlet(name = "ControladorCliente", urlPatterns = {"/ControladorCliente"})
 public class ControladorCliente extends HttpServlet {
@@ -126,8 +126,7 @@ public class ControladorCliente extends HttpServlet {
             try
             {
                 String nIdentificacion =  request.getParameter("e_cliente");
-
-                Cliente cliente =  tienda.buscarCliente(nIdentificacion);
+                tienda.eliminarCliente(nIdentificacion);
              
                 mensaje = "El cliente con identificacion::" + nIdentificacion+ " fue eliminado con éxito";
                 session.setAttribute("mensaje", mensaje);
