@@ -121,7 +121,7 @@ public class Tienda
             if (vehiculo != null)
             {
                 Alquiler alquiler = new Alquiler(pCliente, pHoras, pVehiculo);
-                //alquilerDAO.agregarAlquiler(alquiler);
+                alquilerDAO.agregarAlquiler(alquiler);
                 alquileres.add(alquiler);
             }
             else

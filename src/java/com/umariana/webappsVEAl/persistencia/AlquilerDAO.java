@@ -59,8 +59,8 @@ public class AlquilerDAO {
     public int agregarAlquiler(Alquiler pAlquiler) throws ClassNotFoundException, SQLException
     {
         int resultado = -1;
-        String sql = "INSERT INTO alquiler (cliente, vehiculo, horas) "
-                + "VALUES('" + pAlquiler.getCliente()+ "', " + pAlquiler.getVehiculo() + ", "+ pAlquiler.getHoras() + ")";
+        String sql = "INSERT INTO alquiler (vehiculo,cliente,horas)"
+                + "VALUES('" +pAlquiler.getVehiculo() + "','"+ pAlquiler.getCliente()+ "','" + pAlquiler.getHoras() + "')";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
