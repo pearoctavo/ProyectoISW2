@@ -60,7 +60,7 @@ public class AlquilerDAO {
     {
         int resultado = -1;
         String sql = "INSERT INTO alquiler (vehiculo,cliente,horas)"
-                + "VALUES('" +pAlquiler.getVehiculo() + "','"+ pAlquiler.getCliente()+ "','" + pAlquiler.getHoras() + "')";
+                + "VALUES('" +pAlquiler.getVehiculo() + "','"+ pAlquiler.getCliente()+ "'," + pAlquiler.getHoras() + ")";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
