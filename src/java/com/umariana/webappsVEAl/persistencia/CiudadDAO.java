@@ -57,7 +57,7 @@ public class CiudadDAO {
     {
         int resultado = -1;
         String sql = "INSERT INTO ciudad (id,nombre) "
-                + "VALUES('" + pCiudad.getNombreCiudad() + "')";
+                + "VALUES(max(id+1),'" + pCiudad.getNombreCiudad() + "')";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
