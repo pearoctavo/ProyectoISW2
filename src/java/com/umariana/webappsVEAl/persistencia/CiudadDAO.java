@@ -56,7 +56,7 @@ public class CiudadDAO {
     public int agregarCiudad(Ciudad pCiudad) throws ClassNotFoundException, SQLException
     {
         int resultado = -1;
-        String sql = "INSERT INTO ciudad (nombre) "
+        String sql = "INSERT INTO ciudad (id,nombre) "
                 + "VALUES('" + pCiudad.getNombreCiudad() + "')";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
@@ -78,7 +78,7 @@ public class CiudadDAO {
     public ArrayList consultar( ) throws SQLException, ClassNotFoundException
     {
         ArrayList ciudades = new ArrayList();
-        String sqlConsultar = "SELECT nombre FROM ciudad";
+        String sqlConsultar = "SELECT id nombre FROM ciudad";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
@@ -86,7 +86,7 @@ public class CiudadDAO {
             ResultSet tabla = instruccion.executeQuery(sqlConsultar);
             while(tabla.next())
             {
-                Ciudad ciudad = new Ciudad(tabla.getString("nombre"));
+                Ciudad ciudad = new Ciudad(Integer.parseInt(tabla.getString("id")),tabla.getString("nombre"));
                 ciudades.add(ciudad);
             }
         }
@@ -104,7 +104,7 @@ public class CiudadDAO {
     public Ciudad consultarPorNombre(String pNombre) throws SQLException, ClassNotFoundException
     {
         Ciudad ciudad = null;
-        String sqlConsultar = "SELECT nombre FROM ciudad WHERE nombre='"+ pNombre +"'";
+        String sqlConsultar = "SELECT id, nombre FROM ciudad WHERE nombre='"+ pNombre +"'";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
@@ -112,7 +112,7 @@ public class CiudadDAO {
             ResultSet tabla = instruccion.executeQuery(sqlConsultar);
             while(tabla.next())
             {
-                ciudad = new Ciudad(tabla.getString("nombre"));
+                ciudad = new Ciudad(Integer.parseInt(tabla.getString("id")),tabla.getString("nombre"));
             }
         }
         fachada.desconectar(miConexion);
@@ -153,7 +153,7 @@ public class CiudadDAO {
     {
         int resultado = -1;
         String sql = "UPDATE ciudad SET nombre='"+ pCiudad.getNombreCiudad() +"'"
-                + "WHERE placa='"+ pNombre +"'";
+                + "WHERE nombre='"+ pNombre +"'";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {

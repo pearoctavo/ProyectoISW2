@@ -59,7 +59,7 @@ public class AlquilerDAO {
     public int agregarAlquiler(Alquiler pAlquiler) throws ClassNotFoundException, SQLException
     {
         int resultado = -1;
-        String sql = "INSERT INTO alquiler (vehiculo,cliente,horas)"
+        String sql = "INSERT INTO alquiler (id,vehiculo,cliente,horas)"
                 + "VALUES('" +pAlquiler.getVehiculo() + "','"+ pAlquiler.getCliente()+ "'," + pAlquiler.getHoras() + ")";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
@@ -81,7 +81,7 @@ public class AlquilerDAO {
     public ArrayList consultar( ) throws SQLException, ClassNotFoundException
     {
         ArrayList alquileres = new ArrayList();
-        String sqlConsultar = "SELECT cliente,vehiculo,horas FROM alquiler";
+        String sqlConsultar = "SELECT id cliente,vehiculo,horas FROM alquiler";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
@@ -89,7 +89,7 @@ public class AlquilerDAO {
             ResultSet tabla = instruccion.executeQuery(sqlConsultar);
             while(tabla.next())
             {
-                Alquiler alquiler = new Alquiler(tabla.getString("cliente"),Integer.parseInt(tabla.getString("horas")), tabla.getString("vehiculo")  );
+                Alquiler alquiler = new Alquiler( Integer.parseInt(tabla.getString("id")),tabla.getString("cliente"),Integer.parseInt(tabla.getString("horas")), tabla.getString("vehiculo")  );
                 alquileres.add(alquiler);
             }
         }
