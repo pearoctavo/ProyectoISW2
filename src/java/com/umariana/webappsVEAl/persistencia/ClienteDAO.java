@@ -28,7 +28,7 @@ public class ClienteDAO {
     private Fachada fachada;
     
     /**
-     * 
+     * atributo que conecta con la clase tienda
      */
     private Tienda tienda;
     
@@ -36,7 +36,7 @@ public class ClienteDAO {
     /// Constructor
     /// ---------------------------------------
     /**
-    * Constructor de la clase vehiculoDAO.
+    * Constructor de la clase ClienteDAO.
     */
     public ClienteDAO()
     {
@@ -47,7 +47,7 @@ public class ClienteDAO {
     /// Metodos
     /// ---------------------------------------
     /**
-     * 
+     * agrega un cliente a la base de datos
      * @param pCliente
      * @return
      * @throws ClassNotFoundException
@@ -70,7 +70,7 @@ public class ClienteDAO {
     }
     
     /**
-     * 
+     * consulta todos los clientes de la base de datos
      * @return
      * @throws SQLException
      * @throws ClassNotFoundException 
@@ -95,7 +95,7 @@ public class ClienteDAO {
     }
     
     /**
-     * 
+     * consulta por identificacion el cliente en la base de datos
      * @param pIdentificacion
      * @return
      * @throws SQLException
@@ -120,7 +120,7 @@ public class ClienteDAO {
     }
     
     /**
-     * 
+     * elimina in cliente en la base de datos
      * @param pCliente
      * @return
      * @throws ClassNotFoundException
@@ -142,7 +142,7 @@ public class ClienteDAO {
     }
 
     /**
-     * 
+     * modifica un cliente en la base de datos
      * @param pIdentificacion
      * @param pCliente
      * @return

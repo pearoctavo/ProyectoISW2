@@ -28,7 +28,7 @@ public class CiudadDAO {
     private Fachada fachada;
     
     /**
-     * 
+     * atributo que conecta con la clase tienda
      */
     private Tienda tienda;
     
@@ -36,7 +36,7 @@ public class CiudadDAO {
     /// Constructor
     /// ---------------------------------------
     /**
-    * Constructor de la clase vehiculoDAO.
+    * Constructor de la clase CiudadDAO.
     */
     public CiudadDAO()
     {
@@ -47,7 +47,7 @@ public class CiudadDAO {
     /// Metodos
     /// ---------------------------------------
     /**
-     * 
+     * agrega una ciudad a la base de datos
      * @param pCiudad
      * @return
      * @throws ClassNotFoundException
@@ -70,7 +70,7 @@ public class CiudadDAO {
     }
     
     /**
-     * 
+     * consilta todas las ciudades de la base de datos
      * @return
      * @throws SQLException
      * @throws ClassNotFoundException 
@@ -95,7 +95,7 @@ public class CiudadDAO {
     }
     
     /**
-     * 
+     * consulta por nombre la ciudad en la base de datos 
      * @param pNombre
      * @return
      * @throws SQLException
@@ -120,7 +120,7 @@ public class CiudadDAO {
     }
     
     /**
-     * 
+     * elimina una ciudad den la base de datos 
      * @param pCiudad
      * @return
      * @throws ClassNotFoundException
@@ -142,7 +142,7 @@ public class CiudadDAO {
     }
 
     /**
-     * 
+     * modifica una ciudad en la base de datos
      * @param pNombre
      * @param pCiudad
      * @return
@@ -152,8 +152,8 @@ public class CiudadDAO {
     public int modificarCiudad(String pNombre, Ciudad pCiudad) throws ClassNotFoundException, SQLException
     {
         int resultado = -1;
-        String sql = "UPDATE ciudad SET nombre='"+ pNombre +"'"
-                + "WHERE placa='"+ pCiudad.getNombreCiudad() +"'";
+        String sql = "UPDATE ciudad SET nombre='"+ pCiudad.getNombreCiudad() +"'"
+                + "WHERE placa='"+ pNombre +"'";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {

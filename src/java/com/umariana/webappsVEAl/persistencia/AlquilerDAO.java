@@ -31,7 +31,7 @@ public class AlquilerDAO {
     private Fachada fachada;
     
     /**
-     * 
+     * atributo que conecta con la clase tienda
      */
     private Tienda tienda;
     
@@ -39,7 +39,7 @@ public class AlquilerDAO {
     /// Constructor
     /// ---------------------------------------
     /**
-    * Constructor de la clase vehiculoDAO.
+    * Constructor de la clase AlquilerDAO.
     */
     public AlquilerDAO()
     {
@@ -50,7 +50,7 @@ public class AlquilerDAO {
     /// Metodos
     /// ---------------------------------------
     /**
-     * 
+     * agre un alquiler a la abse de datos
      * @param pAlquiler
      * @return
      * @throws ClassNotFoundException
@@ -73,7 +73,7 @@ public class AlquilerDAO {
     }
     
     /**
-     * 
+     * consulta todos los alquileres de la base de datos
      * @return
      * @throws SQLException
      * @throws ClassNotFoundException 
