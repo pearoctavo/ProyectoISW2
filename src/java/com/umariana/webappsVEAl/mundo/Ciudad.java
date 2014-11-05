@@ -11,6 +11,10 @@ public class Ciudad
     /// Atributos
     /// ---------------------------------------
     /**
+     * id de la ciudad
+     */
+    private int id;
+    /**
      * nombre de la ciudad
      */
     private String nombreCiudad;
@@ -20,10 +24,12 @@ public class Ciudad
     /// ---------------------------------------
     /**
      * Constructor del objeto ciudad
+     * @param pId - id de la ciudad. pId != null
      * @param pNombreCiudad - ciudad a la cual pertenecen clientes y tienda de alquiler. pNombreCiudad != ""
      */
-    public Ciudad(String pNombreCiudad)
+    public Ciudad(int pId ,String pNombreCiudad)
     {
+        id=pId;
         nombreCiudad = pNombreCiudad;
     }
 
@@ -55,7 +61,23 @@ public class Ciudad
     {
         return nombreCiudad;
     }
-    
+    /**
+     * Método que retorna el id de la ciudad
+     * @return id
+     */
+    public int getId() 
+    {
+        return id;
+    }
+
+    /**
+     * Método que modifica el id de la ciudad
+     * @param pId - id de la ciudad. pId != null
+     */
+    public void setId(int pId) 
+    {
+        this.id = pId;
+    }
     
     
 }

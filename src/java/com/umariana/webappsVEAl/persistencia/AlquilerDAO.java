@@ -59,8 +59,12 @@ public class AlquilerDAO {
     public int agregarAlquiler(Alquiler pAlquiler) throws ClassNotFoundException, SQLException
     {
         int resultado = -1;
+        
+        ArrayList ultimoAlquiler=consultarUltimoId();
+        Alquiler elAlquiler=(Alquiler)ultimoAlquiler.get(0);
+        
         String sql = "INSERT INTO alquiler (id,vehiculo,cliente,horas)"
-                + "VALUES(max(id+1) ,'" +pAlquiler.getVehiculo() + "','"+ pAlquiler.getCliente()+ "'," + pAlquiler.getHoras() + ")";
+                + "VALUES("+ elAlquiler.getId()+1 +",'" +pAlquiler.getVehiculo() + "','"+ pAlquiler.getCliente()+ "'," + pAlquiler.getHoras() + ")";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
@@ -97,6 +101,32 @@ public class AlquilerDAO {
         return alquileres;
     }
     
+    
+    
+    /**
+     * consulta el ultimo id de las base de datos
+     * @return
+     * @throws SQLException
+     * @throws ClassNotFoundException 
+     */
+    public ArrayList consultarUltimoId( ) throws SQLException, ClassNotFoundException
+    {
+        ArrayList alquileres = new ArrayList();
+        String sqlConsultar = "SELECT id,cliente,vehiculo,horas FROM alquiler order by id desc";
+        Connection miConexion = fachada.conectar();
+        if(miConexion != null)
+        {
+            Statement instruccion = miConexion.createStatement();
+            ResultSet tabla = instruccion.executeQuery(sqlConsultar);
+            while(tabla.next())
+            {
+                Alquiler alquiler = new Alquiler( Integer.parseInt(tabla.getString("id")),tabla.getString("cliente"),Integer.parseInt(tabla.getString("horas")), tabla.getString("vehiculo")  );
+                alquileres.add(alquiler);
+            }
+        }
+        fachada.desconectar(miConexion);
+        return alquileres;
+    }
    
 }
     

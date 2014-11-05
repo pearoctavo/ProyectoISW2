@@ -55,9 +55,11 @@ public class CiudadDAO {
      */
     public int agregarCiudad(Ciudad pCiudad) throws ClassNotFoundException, SQLException
     {
+        ArrayList ultimaCiudad=consultarUltimoId();
+        Ciudad laCiudad=(Ciudad)ultimaCiudad.get(0);
         int resultado = -1;
         String sql = "INSERT INTO ciudad (id,nombre) "
-                + "VALUES(max(id+1),'" + pCiudad.getNombreCiudad() + "')";
+                + "VALUES("+laCiudad.getId()+1 +",'" + pCiudad.getNombreCiudad() + "')";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
@@ -70,7 +72,7 @@ public class CiudadDAO {
     }
     
     /**
-     * consilta todas las ciudades de la base de datos
+     * consulta todas las ciudades de la base de datos
      * @return
      * @throws SQLException
      * @throws ClassNotFoundException 
@@ -79,6 +81,32 @@ public class CiudadDAO {
     {
         ArrayList ciudades = new ArrayList();
         String sqlConsultar = "SELECT id nombre FROM ciudad";
+        Connection miConexion = fachada.conectar();
+        if(miConexion != null)
+        {
+            Statement instruccion = miConexion.createStatement();
+            ResultSet tabla = instruccion.executeQuery(sqlConsultar);
+            while(tabla.next())
+            {
+                Ciudad ciudad = new Ciudad(Integer.parseInt(tabla.getString("id")),tabla.getString("nombre"));
+                ciudades.add(ciudad);
+            }
+        }
+        fachada.desconectar(miConexion);
+        return ciudades;
+    }
+    
+    
+    /**
+     * consulta el ultimo id la base de datos
+     * @return
+     * @throws SQLException
+     * @throws ClassNotFoundException 
+     */
+    public ArrayList consultarUltimoId( ) throws SQLException, ClassNotFoundException
+    {
+        ArrayList ciudades = new ArrayList();
+        String sqlConsultar = "SELECT id nombre FROM ciudad order by id desc";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {

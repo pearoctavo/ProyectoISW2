@@ -9,6 +9,12 @@ public class Alquiler
     /// ---------------------------------------
     /// Atributos
     /// ---------------------------------------
+    
+    /**
+     * Número de id de al alquiler
+     */
+    private int id;
+    
     /**
      * Cliente que alquila un vehículo
      */
@@ -29,12 +35,14 @@ public class Alquiler
     /// ---------------------------------------
     /**
      * Constructor del objeto cliente
+     * @param pId - id del alquiler. pId != null
      * @param pCliente - Cliente del vehiculo. pCliente != null
      * @param pHoras - Número de horas que el vehículo es alquilado. pHoras != null
      * @param pVehiculo - Vehíclo alquilado. pVehiculo != null
      */
-    public Alquiler(String pCliente, int pHoras, String pVehiculo)
+    public Alquiler(int pId,String pCliente, int pHoras, String pVehiculo)
     {
+        id=pId;
         cliente = pCliente;
         horas = pHoras;
         vehiculo = pVehiculo;
@@ -95,5 +103,22 @@ public class Alquiler
     public void setVehiculo(String pVehiculo) 
     {
         this.vehiculo = pVehiculo;
+    }
+    /**
+     * Método que retorna el id del alquiler
+     * @return id
+     */
+    public int getId() 
+    {
+        return id;
+    }
+
+    /**
+     * Método que modifica el id del alquiler
+     * @param pId - id del alquiler. pId != null
+     */
+    public void setId(int pId) 
+    {
+        this.id = pId;
     }
 }

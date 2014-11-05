@@ -120,7 +120,9 @@ public class Tienda
             Vehiculo vehiculo = buscarVehiculo(pVehiculo);
             if (vehiculo != null)
             {
-                Alquiler alquiler = new Alquiler(pCliente, pHoras, pVehiculo);
+                ArrayList ultimoId=alquilerDAO.consultarUltimoId();
+                Alquiler elUltimo=(Alquiler) ultimoId.get(0);
+                Alquiler alquiler = new Alquiler(elUltimo.getId()+1,pCliente, pHoras, pVehiculo);
                 alquilerDAO.agregarAlquiler(alquiler);
                 alquileres.add(alquiler);
             }
@@ -141,7 +143,9 @@ public class Tienda
         Ciudad ciudad = buscarCiudad(pNombreCiudad);
         if (ciudad == null)
         {            
-            ciudad = new Ciudad(pNombreCiudad);
+            ArrayList ultimaCiudad=ciudadDAO.consultarUltimoId();
+            Ciudad laCiudad=(Ciudad)ultimaCiudad.get(0);
+            ciudad = new Ciudad(laCiudad.getId()+1,pNombreCiudad);
             ciudadDAO.agregarCiudad(ciudad);
             ciudades.add(ciudad);
         }
