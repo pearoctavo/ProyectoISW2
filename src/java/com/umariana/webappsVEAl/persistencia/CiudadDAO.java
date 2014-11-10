@@ -58,8 +58,9 @@ public class CiudadDAO {
         ArrayList ultimaCiudad=consultarUltimoId();
         Ciudad laCiudad=(Ciudad)ultimaCiudad.get(0);
         int resultado = -1;
+        int ciudadid= laCiudad.getId()+1;
         String sql = "INSERT INTO ciudad (id,nombre) "
-                + "VALUES("+laCiudad.getId()+1 +",'" + pCiudad.getNombreCiudad() + "')";
+                + "VALUES("+ciudadid +",'" + pCiudad.getNombreCiudad() + "')";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {

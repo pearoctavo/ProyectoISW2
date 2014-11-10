@@ -62,9 +62,10 @@ public class AlquilerDAO {
         
         ArrayList ultimoAlquiler=consultarUltimoId();
         Alquiler elAlquiler=(Alquiler)ultimoAlquiler.get(0);
+        int alquilerid = elAlquiler.getId()+1;
         
         String sql = "INSERT INTO alquiler (id,vehiculo,cliente,horas)"
-                + "VALUES("+ elAlquiler.getId()+1 +",'" +pAlquiler.getVehiculo() + "','"+ pAlquiler.getCliente()+ "'," + pAlquiler.getHoras() + ")";
+                + "VALUES("+ alquilerid +",'" +pAlquiler.getVehiculo() + "','"+ pAlquiler.getCliente()+ "'," + pAlquiler.getHoras() + ")";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
