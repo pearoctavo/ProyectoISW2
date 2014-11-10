@@ -59,7 +59,7 @@ public class Ciudad
      */
     public String toString()
     {
-        return nombreCiudad;
+        return id +"-->" + nombreCiudad ;
     }
     /**
      * Método que retorna el id de la ciudad

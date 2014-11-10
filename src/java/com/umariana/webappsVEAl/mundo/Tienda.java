@@ -140,7 +140,8 @@ public class Tienda
      */
     public void adicionarCiudad(String pNombreCiudad) throws Exception
      {
-        Ciudad ciudad = buscarCiudad(pNombreCiudad);
+        //Ciudad ciudad = buscarCiudad(pNombreCiudad);
+        Ciudad ciudad = null;
         if (ciudad == null)
         {            
             ArrayList ultimaCiudad=ciudadDAO.consultarUltimoId();
