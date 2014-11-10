@@ -80,7 +80,7 @@ public class CiudadDAO {
     public ArrayList consultar( ) throws SQLException, ClassNotFoundException
     {
         ArrayList ciudades = new ArrayList();
-        String sqlConsultar = "SELECT id nombre FROM ciudad";
+        String sqlConsultar = "SELECT id,nombre FROM ciudad";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
@@ -106,7 +106,7 @@ public class CiudadDAO {
     public ArrayList consultarUltimoId( ) throws SQLException, ClassNotFoundException
     {
         ArrayList ciudades = new ArrayList();
-        String sqlConsultar = "SELECT id nombre FROM ciudad order by id desc";
+        String sqlConsultar = "SELECT id, nombre FROM ciudad order by id desc";
         Connection miConexion = fachada.conectar();
         if(miConexion != null)
         {
